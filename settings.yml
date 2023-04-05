@@ -1,0 +1,14 @@
+svg_icons:
+  default: "university"
+  type: "list"
+  list_type: "compact"
+
+toggle_position:
+  default: "bottom"
+  type: enum
+  choices:
+    - "top"
+    - "bottom"
+
+back_mode:
+  default: false
