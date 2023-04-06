@@ -10,5 +10,9 @@ toggle_position:
     - "top"
     - "bottom"
 
-back_mode:
-  default: false
+toggle_mode:
+  default: "single"
+  type: enum
+  choices:
+    - "single"
+    - "double"
