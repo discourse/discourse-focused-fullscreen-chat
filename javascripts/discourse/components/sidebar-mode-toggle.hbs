@@ -6,7 +6,7 @@
         <DButton
           @action={{action "toggleMode"}}
           @class="btn-default chat-mode-toggle"
-          @icon="random"
+          @icon={{if (eq this.currentMode "chat") "random" "d-chat"}}
           @translatedLabel={{if (eq this.currentMode "chat") "Forum" "Chat"}}
         />
       {{else}}

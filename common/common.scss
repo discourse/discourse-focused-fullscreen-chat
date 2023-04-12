@@ -114,3 +114,35 @@
     display: none;
   }
 }
+
+// hide default chat header toggle on desktop
+.desktop-view {
+  .chat-header-icon {
+    display: none;
+  }
+}
+
+// hide custom chat header toggle on mobile
+.mobile-view {
+  .custom-chat-header-icon {
+    display: none;
+  }
+}
+
+// custom chat header toggle notification styles
+.header-dropdown-toggle.custom-chat-header-icon {
+  .icon {
+    .chat-channel-unread-indicator {
+      border: 2px solid var(--header_background);
+      position: absolute;
+      right: 2px;
+      bottom: 2px;
+      transition: border-color linear 0.15s;
+    }
+  }
+  &:hover {
+    .icon .chat-channel-unread-indicator {
+      border: 2px solid var(--primary-low);
+    }
+  }
+}
