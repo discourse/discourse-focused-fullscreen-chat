@@ -3,7 +3,6 @@
   tabindex="0"
   class={{concat-class "icon btn-flat" (if this.isActive "active")}}
 >
-
   {{#if this.chatStateManager.isFullPageActive}}
     {{d-icon "random"}}
   {{else}}
@@ -11,6 +10,6 @@
   {{/if}}
 
   {{#unless (or this.currentUserInDnD this.chatStateManager.isFullPageActive)}}
-    <ChatHeaderIconUnreadIndicator />
+    <Chat::Header::Icon::UnreadIndicator />
   {{/unless}}
 </a>
