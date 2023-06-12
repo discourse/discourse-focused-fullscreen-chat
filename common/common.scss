@@ -117,7 +117,7 @@
 
 // hide default chat header toggle on desktop
 .desktop-view {
-  .chat-header-icon {
+  .d-header-wrap .chat-header-icon {
     display: none;
   }
 }
@@ -134,31 +134,41 @@
 .header-dropdown-toggle.custom-chat-header-icon {
   .icon {
     .chat-channel-unread-indicator {
+      width: 14px;
+      height: 14px;
       border-radius: 1em;
+      box-sizing: content-box;
+      -webkit-touch-callout: none;
+      background: var(--tertiary-med-or-tertiary);
+      color: var(--secondary);
+      font-size: var(--font-down-2);
+      text-align: center;
       border: 2px solid var(--header_background);
       position: absolute;
       right: 2px;
-      bottom: 2px;
+      top: 0;
       transition: border-color linear 0.15s;
 
-      &.urgent {
+      &.-urgent {
         display: flex;
         align-items: center;
         justify-content: center;
         width: auto;
-        min-width: 14px;
-        padding: 2px;
+        height: 1em;
+        min-width: 0.6em;
+        padding: 0.21em 0.42em;
+        top: -1px;
         right: 0;
+        background: var(--success);
+        color: var(--secondary);
       }
 
       &__number {
         font-size: 0.7rem;
         line-height: 15px;
         height: inherit;
-
-        &.-too-high {
-          font-size: 1.25rem;
-        }
+        color: var(--secondary);
+        line-height: var(--line-height-small);
       }
     }
   }
