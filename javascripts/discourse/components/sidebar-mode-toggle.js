@@ -15,7 +15,7 @@ export default class SidebarModeToggle extends Component {
   constructor() {
     super(...arguments);
     this.setDefaultMode();
-    this.router.on("routeWillChange", (transition) => {
+    this.router.on("routeDidChange", (transition) => {
       this.updateModeBasedOnRoute(transition.to);
     });
   }
