@@ -1,9 +1,12 @@
 <!-- adding plugin outlets here, not sure if we'll need it in core yet -->
 <DSection @pageClass="has-sidebar" @id="d-sidebar" @class="sidebar-container">
+  {{#if this.showSwitchPanelButtonsOnTop}}
+    <Sidebar::SwitchPanelButtons @buttons={{this.switchPanelButtons}} />
+  {{/if}}
 
   <PluginOutlet @name="sidebar-above-sections" />
 
-  {{#if this.showMainPanel}}
+  {{#if this.sidebarState.showMainPanel}}
     <Sidebar::Sections
       @currentUser={{this.currentUser}}
       @collapsableSections={{true}}
@@ -13,18 +16,12 @@
     <Sidebar::ApiPanels
       @currentUser={{this.currentUser}}
       @collapsableSections={{true}}
-      @panel={{this.currentPanel}}
     />
   {{/if}}
 
-  {{#each this.switchPanelButtons as |button|}}
-    <DButton
-      @action={{action "switchPanel" button}}
-      @class="btn-default sidebar__panel-switch-button"
-      @icon={{button.switchButtonIcon}}
-      @translatedLabel={{button.switchButtonLabel}}
-    />
-  {{/each}}
+  {{#unless this.showSwitchPanelButtonsOnTop}}
+    <Sidebar::SwitchPanelButtons @buttons={{this.switchPanelButtons}} />
+  {{/unless}}
 
   <PluginOutlet @name="sidebar-above-footer" />
 
