@@ -1,5 +1,7 @@
-<!-- adding plugin outlets here, not sure if we'll need it in core yet -->
-<DSection @pageClass="has-sidebar" @id="d-sidebar" @class="sidebar-container">
+{{! adding plugin outlets here, not sure if we'll need it in core yet }}
+{{page-class "has-sidebar-page"}}
+
+<section id="d-sidebar" class="sidebar-container">
   {{#if this.showSwitchPanelButtonsOnTop}}
     <Sidebar::SwitchPanelButtons @buttons={{this.switchPanelButtons}} />
   {{/if}}
@@ -26,4 +28,4 @@
   <PluginOutlet @name="sidebar-above-footer" />
 
   <Sidebar::Footer />
-</DSection>
+</section>

@@ -1,30 +1,27 @@
-{{#unless this.site.mobileView}}
-  {{#if (and this.currentUser this.currentMode)}}
-    <div class="sidebar-footer__mode-toggle">
-
-      {{#if (eq (theme-setting "toggle_mode") "single")}}
-        <DButton
-          @action={{action "toggleMode"}}
-          @class="btn-default chat-mode-toggle"
-          @icon={{if (eq this.currentMode "chat") "random" "d-chat"}}
-          @translatedLabel={{if (eq this.currentMode "chat") "Forum" "Chat"}}
-        />
-      {{else}}
-
-        <a
-          class="forum-mode-toggle"
-          {{on "click" this.toggleMode}}
-          data-sidebar-mode="forum"
-        >{{d-icon "university"}}</a>
-        <a
-          class="chat-mode-toggle"
-          {{on "click" this.toggleMode}}
-          data-sidebar-mode="chat"
-        >
-          {{d-icon "d-chat"}}
-        </a>
-
-      {{/if}}
-    </div>
-  {{/if}}
-{{/unless}}
+{{#if (and this.site.desktopView this.currentUser this.currentMode)}}
+  <div class="sidebar-footer__mode-toggle">
+    {{#if (eq (theme-setting "toggle_mode") "single")}}
+      <DButton
+        @action={{action "toggleMode"}}
+        @icon={{if (eq this.currentMode "chat") "random" "d-chat"}}
+        @translatedLabel={{if (eq this.currentMode "chat") "Forum" "Chat"}}
+        class="btn-default chat-mode-toggle"
+      />
+    {{else}}
+      <a
+        {{on "click" this.toggleMode}}
+        href
+        data-sidebar-mode="forum"
+        class="forum-mode-toggle"
+      >{{d-icon "university"}}</a>
+      <a
+        {{on "click" this.toggleMode}}
+        href
+        data-sidebar-mode="chat"
+        class="chat-mode-toggle"
+      >
+        {{d-icon "d-chat"}}
+      </a>
+    {{/if}}
+  </div>
+{{/if}}
